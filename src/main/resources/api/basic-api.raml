@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: Space Travel Sample API
+version: v1.0
+baseUri: https://www.sampleapi.com/{version}/api
+
+/destinations:
+  get:
+    description: get a list of destinations
+    responses:
+      200:
+        description: list of destinations
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "station": "Armstrong Moon Base",
+                  "code": "AMB",
+                  "type": "Moon",
+                  "location": "Moon"
+                },
+                {
+                  "station": "Big Jupiter Station",
+                  "code": "JS",
+                  "type": "Planet",
+                  "location": "Jupiter"
+                }
+              ]
+      400:
+        description: Badrequest
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Bad Request"
+              }
+      500:
+        description: Internal Server Error
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Internal Server Error"
+              }
